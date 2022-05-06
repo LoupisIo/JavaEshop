@@ -1,6 +1,6 @@
-/**
- * 
- */
+package gr.upatras;
+
+import java.util.*;
 
 /**
  * @author loupis.io
@@ -10,12 +10,15 @@ public class User {
 	public String name;
 	public String email;
 	
+	//Constructor
+	public User(String name, String email){
+		this.name=name;
+        this.email=email;
+    }
 	
 	
-	/**
-	 * Setters and getters
-	 * 
-	 */
+	//Setters and getters
+	
 	public String getName() {
 		return name;
 	}
