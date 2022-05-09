@@ -17,6 +17,13 @@ public class Eshop {
     public static ArrayList<Item> itemsList = new ArrayList<Item>();
     public String[] productCategories = {"Pen","Pencil","Notebook","Paper"};
     
+    public Eshop(String nameOwner, String emailOwner, String soname){
+        Owner owner= new Owner(nameOwner,emailOwner);
+        this.ownersName=nameOwner;
+        this.StoreName= soname;
+    }
+    
+    
     public ArrayList<Buyer> getBuyerList() {
         return buyersList;
     }

@@ -9,7 +9,7 @@ package gr.upatras;
  */
 public class Buyer extends User {
 	// Saves the User's bonus
-	public int bonus;
+	public double bonus;
 	//Saves the User's bonus level ( Bronze, Silver, Gold )
 	public String buyerCategory;
 	// Represents the shopping cart of the User
@@ -39,7 +39,7 @@ public class Buyer extends User {
 	}
 	
 	//Function to update the bonus of a user and his category
-	public void setBonus(int x) {
+	public void setBonus(double x) {
 		bonus = bonus + x;
 		setCategory();
 	}
@@ -60,7 +60,7 @@ public class Buyer extends User {
 		this.shc = shc;
 	}
 
-	public int getBonus() {
+	public double getBonus() {
 		return bonus;
 	}
 	

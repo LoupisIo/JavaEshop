@@ -97,11 +97,30 @@ public class ShoppingCart {
         System.out.println("Final Cost:"+ Temp+" €");
 	}
 
-	public void clearCard(){
+	public void clearCart(){
 		//Clears the shopping Cart
         orderList.clear();
     }
 
+	public void checkOut() {
+		System.out.println("Do you wish to procced to checkout?  Y/N");
+		final Scanner scanner = new Scanner(System.in);
+		final String answer = scanner.nextLine();
+		scanner.close();
+		if (answer=="N") {
+			return ;
+		}else if(answer=="Y") {
+			buyer.setBonus(calculateCost() * 0.1);
+			clearCart();
+			return;
+			
+		}else {
+			checkOut();
+		}
+		
+		
+	}
+	
     public  double calculateNet(){
         //Calculates the final cost
         double totalCost =calculateCost()+calculateCourierCost();
