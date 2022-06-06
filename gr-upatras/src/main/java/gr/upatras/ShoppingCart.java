@@ -15,9 +15,20 @@ public class ShoppingCart {
 	Buyer buyer;
 	
 	
+	
 	public ShoppingCart(Buyer buyer) {
         this.buyer=buyer;
     }
+	
+	public boolean cartIsEmpty() {
+		 
+	        if(orderList.isEmpty()){
+	            return true;
+	        }else{
+	            return false;
+	        }
+	        
+	}
 	
 	public void addItemOrdered(Item item, int quantity) {
 		
@@ -48,20 +59,23 @@ public class ShoppingCart {
 		}
 	}
 	
-	public void removeItemOrdered(ItemOrdered item) {
-		for (ItemOrdered order :orderList) {
-			if(item==order) {
-				orderList.remove(order);
-				return;
-			}
-		}
-	}
 	
-	public void changeItemOrderedQuantity(ItemOrdered item, int quantity){
+	
+	public void removeItemOrdered(int iOrd){
+        int i=0;
+        for(ItemOrdered b:orderList) {
+            if (i==iOrd) {
+                b.getItemOrd().setStock(b.getItemOrd().getStock() + b.quantity);
+                orderList.remove(b);
+            }
+        }
+    }
+	
+	public void changeItemOrderedQuantity(int id, int quantity){
 		
-		for(ItemOrdered order :orderList) {
+		final ItemOrdered order = orderList.get(id -1); 
 			//Find the item in the orderList
-			if (order == item) {
+			
 				//Check for available Stock
 				int change = order.getQuantity() - quantity;
 					//find the item in the list
@@ -83,8 +97,8 @@ public class ShoppingCart {
 					}
 				}
 					
-			}
-		}
+			
+		
 	}
 
 	public void showCart() {
@@ -106,8 +120,7 @@ public class ShoppingCart {
 		System.out.println("Do you wish to procced to checkout?  Y/N");
 		final Scanner scanner = new Scanner(System.in);
 		final String answer = scanner.nextLine();
-		scanner.close();
-		if (answer=="N") {
+				if (answer=="N") {
 			return ;
 		}else if(answer=="Y") {
 			buyer.setBonus(calculateCost() * 0.1);

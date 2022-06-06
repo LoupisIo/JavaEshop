@@ -16,8 +16,10 @@ public class main {
     public static Pen blackpen = new Pen(49, "Bic-Basic-black", "Simple black pen", 2.00, 280, "black", 0.5);
     
     
-    public static NoteBook Biga4notebook= new NoteBook(22,"big-NoteBook-A4","Basic big NoteBook",2.5,150,5,250);
+    public static NoteBook Biga4notebook= new NoteBook(23,"big-NoteBook-A4","Basic big NoteBook",2.5,150,5,250);
     public static NoteBook Smalla4notebook= new NoteBook(22,"NoteBook-A4","Basic small NoteBook",2.5,99,3,150);
+    
+    
     
     public static Eshop myShop = new Eshop("Vassilis Koutroglou", "vasilisvasil@gmail.com","vivliopoleio");
     
@@ -25,11 +27,13 @@ public class main {
     
 
 
-    public static void main(String[] args) throws NoBuyerEx, BuyerEx, NoItemEx {
+    @SuppressWarnings("static-access")
+	public static void main(String[] args) throws NoBuyerEx, BuyerEx, NoItemEx {
 
         try {
-        	Buyer Kostas = new Buyer("kostas", "email@gmail.com");
+        	Buyer Kostas = new Buyer("kostas", "mail@gmail.com");
         	myShop.addBuyer(Kostas);
+        	
         	}
         catch (BuyerEx by) {
         	System.out.println(by.ExceptionMessage());
@@ -121,5 +125,25 @@ public class main {
         catch(ItemEx error) {
             	System.out.println(error.ExceptionMessage());
         }
+        
+        final menu Menu = new menu();
+       
+        Menu.initEshop(myShop);
+        Menu.login();
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

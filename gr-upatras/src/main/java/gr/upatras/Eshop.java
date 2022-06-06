@@ -18,10 +18,11 @@ public class Eshop {
     public String[] productCategories = {"Pen","Pencil","Notebook","Paper"};
     
     public Eshop(String nameOwner, String emailOwner, String soname){
-        Owner owner= new Owner(nameOwner,emailOwner);
+        this.owner= new Owner(nameOwner,emailOwner);
         this.ownersName=nameOwner;
         this.StoreName= soname;
     }
+    
     
     
     public ArrayList<Buyer> getBuyerList() {
@@ -69,12 +70,16 @@ public class Eshop {
     }
 	
     public void addBuyer(Buyer newBuyer) throws BuyerEx {
+    	System.out.println("Adding a user");
     	for (Buyer x: buyersList) {
     		if (x==newBuyer) {
+    			System.out.println("Before I throw an");
     			throw new BuyerEx();
     		}
-    		buyersList.add(newBuyer);
+    		
+    		
     	}
+    	buyersList.add(newBuyer);
     	
     }
     
@@ -117,18 +122,20 @@ public class Eshop {
     }
     
     public void showProductperCategory(String category) {
-    	System.out.println("The products in the "+category+" are:");
+    	System.out.println("The products in the "+category+" category are:");
     	for(Item item :itemsList) {
     		if (item.getCategory()== category) {
-    			System.out.println(item.toString());
+    			System.out.println(item.getFullDetails());
     		}
     	}
     }
     
-    public void showProduct(int id) {
+
+    
+    public void showProduct(Item product) {
     	for(Item item :itemsList) {
-    		if(item.getId()==id) {
-    			System.out.println(item.toString());
+    		if(item.getId()==product.getId()) {
+    			System.out.println(item.getFullDetails());
     		}
     	}
     }
@@ -141,4 +148,8 @@ public class Eshop {
     	}
     }
     
+    public void removeBuyer(Buyer buyer) {
+    	buyersList.remove(buyer);
+    	System.out.println("The User "+buyer.getName()+" was deleted");
+    }
 }

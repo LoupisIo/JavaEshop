@@ -13,7 +13,7 @@ public class Pencil extends Item {
 	public String type; /*H,B,HB*/
 	
 	public Pencil(int id, String name, String description, double price, int stock, String type, Double tipSize) {
-		super(id, name, description, price, stock,"Pensil");
+		super(id, name, description, price, stock,"Pencil");
 		this.type = type;
 		this.tipSize = tipSize;
 	}
