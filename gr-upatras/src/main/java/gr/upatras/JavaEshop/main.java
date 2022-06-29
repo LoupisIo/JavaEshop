@@ -126,10 +126,9 @@ public class main {
             	System.out.println(error.ExceptionMessage());
         }
         
-        final menu Menu = new menu();
        
-        Menu.initEshop(myShop);
-        Menu.login();
+       
+       
         
         
         

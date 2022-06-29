@@ -121,24 +121,11 @@ public class Eshop {
         }
     }
     
-    public void showProductperCategory(String category) {
-    	System.out.println("The products in the "+category+" category are:");
-    	for(Item item :itemsList) {
-    		if (item.getCategory()== category) {
-    			System.out.println(item.getFullDetails());
-    		}
-    	}
-    }
+    
     
 
     
-    public void showProduct(Item product) {
-    	for(Item item :itemsList) {
-    		if(item.getId()==product.getId()) {
-    			System.out.println(item.getFullDetails());
-    		}
-    	}
-    }
+    
     
     public void checkStatus() {
     	int i=0;
