@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gr.upatras;
+package gr.upatras.JavaEshop;
 
 /**
  * @author loupis.io

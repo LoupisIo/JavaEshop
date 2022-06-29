@@ -1,4 +1,4 @@
-package gr.upatras;
+package gr.upatras.JavaEshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

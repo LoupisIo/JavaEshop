@@ -1,4 +1,4 @@
-package gr.upatras;
+package gr.upatras.JavaEshop;
 
 
 class MyException extends Exception {

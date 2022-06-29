@@ -1,4 +1,4 @@
-package gr.upatras;
+package gr.upatras.JavaEshop;
 
 public class NoItemEx extends Exception {
     public String ExceptionMessage()

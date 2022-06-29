@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>gr.upatras</groupId>
-	<artifactId>JavaEshopProject</artifactId>
+	<artifactId>JavaEshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>JavaEshopProject</name>
 	<description>Demo project for Spring Boot</description>
