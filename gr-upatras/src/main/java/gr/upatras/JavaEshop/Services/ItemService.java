@@ -1,6 +1,8 @@
 package gr.upatras.JavaEshop.Services;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gr.upatras.JavaEshop.Item;
@@ -18,7 +20,7 @@ import gr.upatras.JavaEshop.IServices.IItemService;
 
 @Service
 public class ItemService implements IItemService {
-	
+	@Autowired
 	
 	List<Item> items = new ArrayList<Item>();
 	int itemCounter = 99;

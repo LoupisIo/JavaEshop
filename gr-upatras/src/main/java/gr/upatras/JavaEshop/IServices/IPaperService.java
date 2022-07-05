@@ -5,7 +5,7 @@ package gr.upatras.JavaEshop.IServices;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import gr.upatras.JavaEshop.Item;
 import gr.upatras.JavaEshop.Paper;
 
 /**
@@ -45,6 +45,8 @@ public interface IPaperService {
 	
 	List<Paper> findByWeight(int weight);
 	
+	
+	List<Item> getAll();
 	
 	
 	

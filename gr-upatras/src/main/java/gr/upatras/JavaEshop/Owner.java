@@ -8,7 +8,7 @@ import java.util.*;
  * @author loupis.io
  *
  */
-public class Owner extends User {
+public class Owner extends MyUser {
 	
 
 	public boolean isAdmin;

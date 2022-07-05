@@ -7,7 +7,7 @@ package gr.upatras.JavaEshop;
  * @author loupis.io
  *
  */
-public class Buyer extends User {
+public class Buyer extends MyUser {
 	// Saves the User's bonus
 	public double bonus;
 	//Saves the User's bonus level ( Bronze, Silver, Gold )

@@ -6,12 +6,14 @@ import java.util.*;
  * @author loupis.io
  *
  */
-public class User {
+public class MyUser {
 	public String name;
 	public String email;
+	private String passWord;
+	
 	
 	//Constructor
-	public User(String name, String email){
+	public MyUser(String name, String email){
 		this.name=name;
         this.email=email;
     }
@@ -30,6 +32,20 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void setPassWord(String newPass) {
+		this.passWord = newPass;
+	}
+	public Boolean checkPass(String password ) {
+		if (this.getPassWord().equals(getPassWord())) {
+			return true;
+		}
+		return false ;
+	}
+
+
+	public String getPassWord() {
+		return passWord;
 	}
 
 }

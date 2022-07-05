@@ -56,6 +56,13 @@ public class PaperService implements IPaperService {
 	}
 
 
+	
+	@Override
+	public List<Item> getAll() {
+		List<Item> paperList = itemService.findByCategory("Paper");
+		
+		return paperList;	
+	}
 
 
 
