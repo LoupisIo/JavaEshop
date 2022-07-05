@@ -16,8 +16,8 @@ public class Buyer extends MyUser {
 	public ShoppingCart shc;
 	
 	//Constructor
-	public Buyer(String name, String email){
-        super(name,email);
+	public Buyer(String name, String email,String password){
+        super(name,email,password);
         this.bonus=0;
         setCategory();
         this.shc=  new ShoppingCart(this);
@@ -63,6 +63,8 @@ public class Buyer extends MyUser {
 	public double getBonus() {
 		return bonus;
 	}
+	
+	
 	
 
 }

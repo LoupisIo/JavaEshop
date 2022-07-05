@@ -115,7 +115,7 @@ public class NoteBookController {
 			@ApiResponse(code = 405, message = "Method Not allowed", response = Error.class),
 			@ApiResponse(code = 409, message = "Conflict", response = Error.class),
 			@ApiResponse(code = 500, message = "Internal Server Error", response = Error.class) })
-			@RequestMapping(value = "/noteBook/pageNumSearch/{pageNum}" , produces = { "application/json;charset=utf-8" }, method =
+			@RequestMapping(value = "/noteBook" , produces = { "application/json;charset=utf-8" }, method =
 			RequestMethod.GET)
 	public List<NoteBook> getAll() {
 		List<NoteBook> noteBookList = noteBookService.getAll();

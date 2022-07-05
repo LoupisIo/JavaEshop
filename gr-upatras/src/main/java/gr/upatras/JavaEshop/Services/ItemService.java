@@ -20,7 +20,6 @@ import gr.upatras.JavaEshop.IServices.IItemService;
 
 @Service
 public class ItemService implements IItemService {
-	@Autowired
 	
 	List<Item> items = new ArrayList<Item>();
 	int itemCounter = 99;
@@ -87,7 +86,7 @@ public class ItemService implements IItemService {
 		}
 		return null;
 	}
-	
+	@Override
 	public List<Item> findByCategory(String category){
 		List<Item> result = new ArrayList<Item>() ;
 		for(Item i : items) {

@@ -2,6 +2,7 @@ package gr.upatras.JavaEshop.IServices;
 
 import java.util.List;
 
+import gr.upatras.JavaEshop.Buyer;
 import gr.upatras.JavaEshop.MyUser;
 
 /**
@@ -26,14 +27,7 @@ public interface IUserService {
 	
 	MyUser deleteUser(MyUser user);
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	List<Buyer> getBuyers();
 	
 	
 

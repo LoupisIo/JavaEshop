@@ -13,14 +13,17 @@ public class MyUser {
 	
 	
 	//Constructor
-	public MyUser(String name, String email){
+	public MyUser(String name, String email,String password){
 		this.name=name;
         this.email=email;
+        this.passWord = password;
     }
-	
 	
 	//Setters and getters
 	
+	
+
+
 	public String getName() {
 		return name;
 	}

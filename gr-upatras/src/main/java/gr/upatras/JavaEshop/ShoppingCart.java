@@ -4,20 +4,26 @@
 package gr.upatras.JavaEshop;
 import java.util.*;
 
+import gr.upatras.JavaEshop.IServices.IItemService;
+
 /**
  * @author loupis.io
  *
  */
+
 public class ShoppingCart {
 	
 	public static ArrayList<ItemOrdered> orderList = new ArrayList<ItemOrdered>();
-	public static ArrayList<Item> itemsList = new ArrayList<Item>();
-	Buyer buyer;
+	private IItemService itemService;
+	private Buyer buyer;
 	
 	
 	
 	public ShoppingCart(Buyer buyer) {
         this.buyer=buyer;
+    }
+	public ShoppingCart() {
+  
     }
 	
 	public boolean cartIsEmpty() {
@@ -30,75 +36,70 @@ public class ShoppingCart {
 	        
 	}
 	
-	public void addItemOrdered(Item item, int quantity) {
+	public List<ItemOrdered> getAll(){
+		return orderList;
+	}
+	
+	public ItemOrdered addItemOrdered(Item item, int quantity) {
 		
-		for(Item x :itemsList) {
+		for(Item x :itemService.returnAll()) {
 			if(x.getId()==item.getId()) {
 				//Check if there is enough stock
 				if(quantity>x.getStock()) {
-					System.out.println("There is not enough stock for this product. Please try lowering the quantity of choose a difrent product");
-					return;
+					
+					return null;
 				}else{
 				//Check if the item already exists in the ShoppingCart
 					for(ItemOrdered order:orderList) {
 						if(order.getItem().getId()==item.getId()) {
 							order.setQuantity(order.getQuantity()+quantity);
-							Eshop.updateStock(item.getId(),-quantity);
-							System.out.println("Your Shopping cart has been updated");
-							return;
+							itemService.setStock(item.id,item.getStock()- quantity);
+							
+							return order;
 						}
 					}
+					
 					//Add the item in the shopping Cart.
 					ItemOrdered newOrder = new ItemOrdered(item,quantity);
 					orderList.add(newOrder);
-					Eshop.updateStock(item.getId(),-quantity);
-					System.out.println("Your Shopping cart has been updated");
-					return;
+					itemService.setStock(item.getId(),item.getStock()-quantity);
+					
+					return newOrder;
+					
 				}	
 			}
 		}
+		return null;
 	}
 	
 	
 	
-	public void removeItemOrdered(int iOrd){
-        int i=0;
+	public boolean removeItemOrdered(int iOrd){
+       
         for(ItemOrdered b:orderList) {
-            if (i==iOrd) {
+            if (b.getItem().getId() ==iOrd) {
                 b.getItemOrd().setStock(b.getItemOrd().getStock() + b.quantity);
                 orderList.remove(b);
+                return true;
             }
         }
+        return false;
     }
 	
-	public void changeItemOrderedQuantity(int id, int quantity){
-		
-		final ItemOrdered order = orderList.get(id -1); 
-			//Find the item in the orderList
-			
-				//Check for available Stock
-				int change = order.getQuantity() - quantity;
-					//find the item in the list
-				for(Item x:itemsList) {
-					
-					if(x.getId()==order.item.getId()) {
-						//Check if the user wants more or not
-						if (change<0) {
-						//Check if there is enough stock
-							if(x.getStock()<(-change)) {
-								System.out.println("There is not enough stock for this product. Please try lowering the quantity of choose a difrent product");
-								return;
-							}
-						}
-						
-						Eshop.updateStock(x.getId(),change);
-						order.setQuantity(quantity);
-						return;
-					}
-				}
-					
-			
-		
+	public ItemOrdered changeItemOrderedQuantity(int id, int quantity){
+	
+        for(ItemOrdered b:orderList) {
+            if (b.getItem().getId() ==id) {
+            	for (Item item: itemService.returnAll()) {
+            		if(item.getId()==id) {
+            			itemService.setStock(id, item.getStock()+quantity);
+            			b.setQuantity(quantity);
+            		}
+            	}
+            	return null;
+            }
+        }
+        return null;		
 	}
 
 	public void showCart() {

@@ -14,8 +14,8 @@ public class Owner extends MyUser {
 	public boolean isAdmin;
 	
 	
-	public Owner(String name, String email) {
-		super(name,email);
+	public Owner(String name, String email,String password) {
+		super(name,email, password);
 		this.isAdmin= true;
 	}
 	

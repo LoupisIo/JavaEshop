@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gr.upatras.JavaEshop.MyUser;
 import gr.upatras.JavaEshop.IServices.IUserService;
+import gr.upatras.JavaEshop.Services.UserService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

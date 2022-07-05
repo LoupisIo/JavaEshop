@@ -1,9 +1,12 @@
 package gr.upatras.JavaEshop.Services;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import gr.upatras.JavaEshop.Buyer;
 import gr.upatras.JavaEshop.Item;
 import gr.upatras.JavaEshop.MyUser;
 import gr.upatras.JavaEshop.IServices.IItemService;
@@ -20,7 +23,7 @@ import gr.upatras.JavaEshop.Pen;
 @Service
 
 public class UserService implements IUserService {
-	@Autowired
+	
 	List<MyUser> users = new ArrayList<MyUser>();
 	
 	public UserService() {
@@ -32,7 +35,7 @@ public class UserService implements IUserService {
 	public List<MyUser> getAll() {
 		return users;
 	}
-	//
+	
 
 	@Override
 	public MyUser findByEmail(String email) {
@@ -98,5 +101,18 @@ public class UserService implements IUserService {
 		return null;
 	}
 	//
+
+
+	@Override
+	public List<Buyer> getBuyers() {
+		List<Buyer> list = new ArrayList<Buyer>();
+		for(MyUser user : users) {
+			if(user instanceof Buyer) {
+				list.add((Buyer) user);
+			}
+		}
+		return list;
+		
+	}
 
 }

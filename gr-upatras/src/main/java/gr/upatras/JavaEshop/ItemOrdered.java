@@ -13,7 +13,6 @@ public class ItemOrdered  {
     int quantity;
     
     public ItemOrdered(Item item, int quaintity){
-
         this.item=item;
         this.quantity= quaintity;
     }
