@@ -28,6 +28,7 @@ public class PenService implements IPenService {
 	
 	
 	
+	
 
 	/**
 	 * Add a Pen object to the Item's List.
@@ -37,11 +38,21 @@ public class PenService implements IPenService {
 	 * */
 	@Override
 	public Pen addPen(Pen pen) {
+		
+		
 		return (Pen) itemService.addItem(pen);
+	}
+	
+	@Override
+	public List<Item> getAllPens() {
+		
+		
+		return itemService.findByCategory("Pen");
 	}
 
 
 
+	
 
 
 	@Override

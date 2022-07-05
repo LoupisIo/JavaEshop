@@ -43,4 +43,6 @@ public interface IPencilService {
 	
 	List<Pencil> findByTipSize(double tipsize);
 	
+	List<Item> getAllPencils();
+	
 }

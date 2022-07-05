@@ -39,6 +39,7 @@ public class NoteBookService implements INoteBookService {
 		return (NoteBook) itemService.addItem(noteBook);
 	}
 
+	
 
 
 
@@ -55,7 +56,20 @@ public class NoteBookService implements INoteBookService {
 		return null;
 	}
 
-
+	
+	@Override
+	public List<NoteBook> getAll() {
+		List<NoteBook> noteBookList = new ArrayList<NoteBook>();
+		for(Item item :itemService.returnAll()) {
+			if(item instanceof NoteBook) {
+				if(((NoteBook) item).getCategory()=="Notebook")
+				noteBookList.add((NoteBook) item);
+			}
+		}
+		return noteBookList;	
+	}
+	
+	
 
 
 

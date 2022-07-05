@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import gr.upatras.JavaEshop.Item;
+import gr.upatras.JavaEshop.Pen;
 import gr.upatras.JavaEshop.Pencil;
 import gr.upatras.JavaEshop.IServices.IItemService;
 import gr.upatras.JavaEshop.IServices.IPencilService;
@@ -102,6 +103,26 @@ public class PencilController {
 		log.info("tipSize: %s",tipSize);
 		List<Pencil> pencilList = pencilService.findByTipSize(tipSize);
 		return pencilList;
+	}
+	
+	
+	@ApiOperation(value="Returns a List of all the Pencils in the eshop",
+			notes="This operation returns a List of Pencil objects in the eshop",
+			response = Pencil.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Pencil.class),
+			@ApiResponse(code = 400, message = "Bad Request", response = Error.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Error.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Error.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Error.class),
+			@ApiResponse(code = 405, message = "Method Not allowed", response = Error.class),
+			@ApiResponse(code = 409, message = "Conflict", response = Error.class),
+			@ApiResponse(code = 500, message = "Internal Server Error", response = Error.class) })
+			@RequestMapping(value = "/pencil" , produces = { "application/json;charset=utf-8" }, method =
+			RequestMethod.GET)
+	public List<Item> getAll() {
+		
+		List<Item> penList = pencilService.getAllPencils();
+		return penList;
 	}
 	
 	

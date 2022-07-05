@@ -104,5 +104,26 @@ public class NoteBookController {
 	}
 	
 	
+	@ApiOperation(value="Returns a List of all the NoteBooks ",
+			notes="This operation returns a List of all the NoteBook objects",
+			response = NoteBook.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = NoteBook.class),
+			@ApiResponse(code = 400, message = "Bad Request", response = Error.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Error.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Error.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Error.class),
+			@ApiResponse(code = 405, message = "Method Not allowed", response = Error.class),
+			@ApiResponse(code = 409, message = "Conflict", response = Error.class),
+			@ApiResponse(code = 500, message = "Internal Server Error", response = Error.class) })
+			@RequestMapping(value = "/noteBook/pageNumSearch/{pageNum}" , produces = { "application/json;charset=utf-8" }, method =
+			RequestMethod.GET)
+	public List<NoteBook> getAll() {
+		List<NoteBook> noteBookList = noteBookService.getAll();
+		return noteBookList;
+	}
+	
+	
+	
+	
 	
 }

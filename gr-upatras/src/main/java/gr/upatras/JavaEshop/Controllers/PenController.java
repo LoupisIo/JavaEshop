@@ -105,5 +105,25 @@ public class PenController {
 	}
 	
 	
+	@ApiOperation(value="Returns a List of all the Pens in the eshop",
+			notes="This operation returns a List of Pen objects in the eshop",
+			response = Pen.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Pen.class),
+			@ApiResponse(code = 400, message = "Bad Request", response = Error.class),
+			@ApiResponse(code = 401, message = "Unauthorized", response = Error.class),
+			@ApiResponse(code = 403, message = "Forbidden", response = Error.class),
+			@ApiResponse(code = 404, message = "Not Found", response = Error.class),
+			@ApiResponse(code = 405, message = "Method Not allowed", response = Error.class),
+			@ApiResponse(code = 409, message = "Conflict", response = Error.class),
+			@ApiResponse(code = 500, message = "Internal Server Error", response = Error.class) })
+			@RequestMapping(value = "/pen" , produces = { "application/json;charset=utf-8" }, method =
+			RequestMethod.GET)
+	public List<Item> getAll() {
+		
+		List<Item> penList = penService.getAllPens();
+		return penList;
+	}
+	
+	
 	
 }

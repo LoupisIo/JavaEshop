@@ -5,7 +5,7 @@ package gr.upatras.JavaEshop.IServices;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import gr.upatras.JavaEshop.Item;
 import gr.upatras.JavaEshop.NoteBook;
 
 /**
@@ -44,6 +44,10 @@ public interface INoteBookService {
 	 */
 	
 	List<NoteBook> findBySections(int sections);
+	
+	
+	
+	List<NoteBook> getAll();
 	
 	
 	

@@ -42,6 +42,9 @@ public interface IPenService {
 	 */
 	
 	List<Pen> findByTipSize(double tipsize);
+
+	
+	List<Item> getAllPens();
 	
 	
 	

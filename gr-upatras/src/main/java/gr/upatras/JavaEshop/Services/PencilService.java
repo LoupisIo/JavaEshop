@@ -40,6 +40,13 @@ public class PencilService implements IPencilService {
 		return (Pencil) itemService.addItem(pencil);
 	}
 
+	@Override
+	public List<Item> getAllPencils() {
+		
+		
+		return itemService.findByCategory("Pencil");
+	}
+
 
 
 
